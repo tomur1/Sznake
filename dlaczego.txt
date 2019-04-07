@@ -1,0 +1,63 @@
+{{Infobox aircraft occurrence
+|name             = TWA Flight 891
+|occurrence_type  = Accident
+|image            = Lockheed L-1649 Constellation TWA.jpg
+|image_size       = 300
+|alt              = 
+|caption          = Starliner N7301C of TWA, sister-ship to the accident aircraft
+|date             = 26 June 1959
+|type             = [[Lightning strike]]
+|site             = Near the hamlet of [[Marnate]],<ref>[https://news.google.com/newspapers?id=QLQ0AAAAIBAJ&sjid=kmkFAAAAIBAJ&pg=1464,5636796&dq=milan+twa+crash&hl=en TWA Plane, 68 aboard, Crashes Near Milan"], ''Lewiston (ME) Evening Journal'', June 21, 1959, p1</ref> [[Italy]] 
+|coordinates      = 
+<!--These 17 entries for single-aircraft occurrence:------>
+|aircraft_type    = [[Lockheed L-1649 Starliner|Lockheed L-1649A Starliner]]
+|aircraft_name    = 
+|operator         = [[Trans World Airlines]]
+|tail_number      = N7313C
+|origin           = [[Malpensa Airport]] (MXP) (MXP/LIMC), [[Italy]]
+|stopover         = 
+|stopover0        = 
+|stopover1        = 
+|stopover2        = 
+|stopover3        = 
+|last_stopover    = 
+|destination      = [[Paris-Orly Airport]] (ORY) (ORY/LFPO), [[France]]
+|passengers       = 59
+|crew             = 9
+|fatalities       = 68 
+|survivors        = 0
+}}
+
+'''TWA Flight 891''' was a [[Lockheed L-1649 Starliner|Lockheed L-1649A Starliner]] that crashed not long after taking off from Milan Malpensa Airport on 26 June 1959. All 68 passengers and crew on board were killed.
+
+==Flight==
+On 26 June 1959, TWA Flight 891 departed [[Malpensa Airport]] in [[Milan]], [[Italy]] with a crew of nine and 59 passengers on board. The flight had originated in [[Athens]] and had stopped in [[Rome]] before flying on to Milan.<ref name="ModBee"/> The destination of the flight from Milan was Paris' [[Paris-Orly Airport|Orly Airport]]. When Flight 891 departed Milan, the weather conditions consisted of light rain and low overcast with a ceiling of around 2,000 feet and a visibility of approximately two miles (3.2&nbsp;km). There were also thunderstorms in the area.<ref>{{cite book |title=Aviation Disasters Second Edition |last1=Gero |first1=David |publisher=Patrick Stephens Limited |year= 1996 |page=33 }}</ref>
+
+Twelve minutes after takeoff, the flight crew reported the aircraft was climbing through 10,000 feet. A few minutes after that, a structural failure occurred to the Starliner and the aircraft broke up in mid-air before crashing. Everyone on board Flight 891 was killed.<ref name="ModBee">[https://news.google.com/newspapers?id=SNcwAAAAIBAJ&sjid=UeEFAAAAIBAJ&pg=1192,4278701&dq=milan+twa+crash&hl=en Airliner Breaks Up In Storm, Killing 68: Plane bound for US hits near Milan]</ref> 
+
+Flight 891 was the first fatal aviation accident involving a Lockheed Starliner.<ref>[http://aviation-safety.net/database/dblist.php?Type=333 Aviation Safety Database Lockheed L-1649A Starliner]</ref> In terms of loss of life, it was also the worst air crash of 1959.<ref>[http://aviation-safety.net/database/dblist.php?Year=1959 List of air crashes in 1959] retrieved 30 July 2012</ref>
+
+==Cause==
+On 24, November 1960, an Italian Inquiry board announced its finding that a lightning strike had brought down Flight 891.<ref>[https://news.google.com/newspapers?id=43seAAAAIBAJ&sjid=-ckEAAAAIBAJ&pg=1380,4327124&dq=milan+twa+crash&hl=en Cause of TWA crash listed]</ref> "The breaking-up in flight was due to the explosion of the fuel vapors contained in tank No.7, followed immediately by either an explosion of pressure or a further explosion in tank No.6. In the absence of other significant concrete evidence, taking into account the stormy weather conditions, with frequent electric discharges, existing in the area at the time of the crash, it may be assumed that the explosion of the fuel vapors contained in tank No.7 was set off, through the outlet pipes, by igniting of the gasoline vapors issuing from these pipes as a consequence of static electricity discharges (streamer corona) which developed on the vent outlets."<ref>[http://aviation-safety.net/database/record.php?id=19590626-0 Aircraft accident Lockheed L-1649A Starliner N7313C Milano]</ref>
+
+==See also==
+*[[Pan Am Flight 214]], another crash caused by lightning
+
+==References==
+{{Reflist|30em}}
+
+==External links==
+*[http://www.airdisaster.com/cgi-bin/view_details.cgi?date=06261959&reg=N7313C&airline=Trans+World+Airlines TWA Flight 891 at Airdisaster.com]
+*[http://www.olgiateolona26giugno1959.org Website dedicated to the plane crash of Olgiate Olona of June 26, 1959 (TWA Flight 891).]
+
+{{Aviation accidents and incidents in 1959}}
+
+{{coord|45|37|39|N|8|53|34|E|type:airport_source:kolossus-itwiki|display=title}}{{TWA}}
+[[Category:Aviation accidents and incidents in 1959]]
+[[Category:Aviation accidents and incidents in Italy]]
+[[Category:Accidents and incidents involving the Lockheed Starliner]]
+[[Category:Airliner accidents and incidents involving in-flight explosions]]
+[[Category:Airliner accidents and incidents caused by lightning strikes]]
+[[Category:Trans World Airlines accidents and incidents|891]]
+[[Category:1959 in Italy]]
+[[Category:1959 meteorology]]
