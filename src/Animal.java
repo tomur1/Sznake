@@ -56,6 +56,7 @@ public class Animal {
         if (height > b.height) {
             return 1;
         } else if (height < b.height) {
+
             return -1;
         } else {
             return 0;

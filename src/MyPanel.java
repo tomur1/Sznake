@@ -48,14 +48,4 @@ public class MyPanel extends JPanel {
     }
 
 
-    public void drawAllSnake(Rectangle2D head, ArrayList<Rectangle2D> snake) {
-        Graphics2D g2d = (Graphics2D) getGraphics();
-        g2d.draw(head);
-        for (Rectangle2D square :
-                snake) {
-            g2d.draw(square);
-        }
-    }
-
-
 }
