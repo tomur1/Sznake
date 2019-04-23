@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.Ellipse2D;
@@ -14,14 +12,17 @@ import java.util.Random;
 public class Rama extends JFrame {
 
     int score = 0;
-    int scale = 100;
-    int width = 160 * 6, height = 90 * 6;
+    int scale = 40;
+    int width = 160 * 8, height = 90 * 8;
     Direction currentDirection;
     MyPanel panel;
     Rectangle2D head;
     LinkedList<Rectangle2D> tail;
     ArrayList<Rectangle2D> allSnake;
-    ArrayList<Ellipse2D> apples;
+    Ellipse2D apple;
+    Point2D lastLocation;
+    JLabel label;
+    boolean gameOver = false;
 
     public Rama() {
         super("Hello World");
@@ -32,15 +33,10 @@ public class Rama extends JFrame {
         panel = new MyPanel();
         add(panel);
 
+        label = new JLabel();
+        label.setText("Hej to ja");
+        add(label);
 
-        Button button = new Button("guzik");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Hej, ktos mnie wcisnal");
-                panel.drawRectAt(10, 10, new Dimension(scale, scale));
-            }
-        });
 
         //add(button);
 
@@ -69,6 +65,8 @@ public class Rama extends JFrame {
                         currentDirection = Direction.RIGHT;
                         System.out.println("pressed right");
                         break;
+                    case KeyEvent.VK_R:
+                        reset();
                 }
 
             }
@@ -86,12 +84,10 @@ public class Rama extends JFrame {
         newThread = new Thread() {
             public void run() {
                 try {
-                    System.out.println("Does it work?");
 
                     Thread.sleep(1000);
                     play();
 
-                    System.out.println("Nope, it doesnt...again.");
                 } catch (InterruptedException v) {
                     System.out.println(v);
                 }
@@ -108,7 +104,7 @@ public class Rama extends JFrame {
         tail = new LinkedList<>();
         allSnake = new ArrayList<>();
         updateAllSnake();
-        apples = new ArrayList<>();
+        spawnApple();
         score = 0;
     }
 
@@ -118,50 +114,78 @@ public class Rama extends JFrame {
         allSnake.addAll(tail);
     }
 
-    public void addTail() {
-
+    public void updateLabel() {
+        label.setText("Score: " + score);
     }
+
 
     public void moveTail() {
         if (tail.size() == 0) {
 
         } else if (tail.size() == 1) {
-            tail.get(0).setRect(getHeadLocation().getX(), getHeadLocation().getY(),
+            tail.get(0).setRect(lastLocation.getX(), lastLocation.getY(),
                     getHeadSize().width, getHeadSize().getHeight());
         } else {
             Rectangle2D tmp = tail.removeLast();
-            tmp.setRect(getHeadLocation().getX(), getHeadLocation().getY(),
+            tmp.setRect(lastLocation.getX(), lastLocation.getY(),
                     getHeadSize().width, getHeadSize().getHeight());
             tail.addFirst(tmp);
         }
 
     }
 
-    void spawnApples() {
+    void spawnApple() {
+        boolean ok = false;
         Random rand = new Random();
-        int valX = rand.nextInt(5);
-        int valY = rand.nextInt(5);
-        Ellipse2D apple = new Ellipse2D.Double(valX * scale, valY * scale, scale, scale);
-        apples.add(apple);
+        int valX = 0;
+        int valY = 0;
+        while (!ok) {
 
+            valX = rand.nextInt(600 / scale);
+            valY = rand.nextInt(600 / scale);
+            if (!isOccupied(valX * scale, valY * scale)) {
+                ok = true;
+            }
+        }
+
+        apple = new Ellipse2D.Double(valX * scale, valY * scale, scale, scale);
+
+    }
+
+    public boolean isOccupied(int x, int y) {
+        if (!tail.isEmpty()) {
+            for (Rectangle2D tailElem :
+                    tail) {
+                if (tailElem.intersects(x, y, getHeadSize().width, getHeadSize().height)) {
+                    return true;
+                }
+            }
+        }
+        if (head != null) {
+            return head.intersects(x, y, getHeadSize().width, getHeadSize().height);
+        }
+        return false;
     }
 
     void eatenApple() {
         score++;
-        apples.clear();
-        spawnApples();
+        updateLabel();
+        addTail();
+        apple = null;
+        spawnApple();
     }
 
     public void play() {
         reset();
         panel.repaint();
 
-        while (true) {
-            eatenApple();
+        while (!gameOver) {
 
             moveSnake();
             updateAllSnake();
-            panel.updateApples(apples);
+            checkDeath();
+            checkEaten();
+            panel.updateApple(apple);
             panel.updateSnake(allSnake);
             try {
                 Thread.sleep(300);
@@ -170,10 +194,39 @@ public class Rama extends JFrame {
                 e.printStackTrace();
             }
         }
+        label.setText("GAME OVER Final Score:" + score);
     }
 
-    public void addSnake(int x, int y, Dimension size) {
-        Rectangle2D rect = new Rectangle2D.Double(x, y, size.width, size.height);
+    private void checkDeath() {
+        for (Rectangle2D tailElem :
+                tail) {
+            if (tailElem.intersects(head)) {
+                gameOver();
+            }
+        }
+    }
+
+    private void gameOver() {
+        gameOver = true;
+    }
+
+    private void checkEaten() {
+        if (head.intersects(apple.getX(), apple.getY(), apple.getWidth(), apple.getHeight())) {
+            eatenApple();
+        }
+    }
+
+    public void addTail() {
+        Rectangle2D rect;
+        //if it's the first one
+        if (tail.size() == 0) {
+            rect = new Rectangle2D.Double(lastLocation.getX(), lastLocation.getY(),
+                    getHeadSize().width, getHeadSize().height);
+        } else {
+            rect = new Rectangle2D.Double(tail.getLast().getX(), tail.getLast().getY(),
+                    getHeadSize().width, getHeadSize().height);
+        }
+
         tail.add(rect);
     }
 
@@ -182,6 +235,8 @@ public class Rama extends JFrame {
     }
 
     public void moveSnake() {
+
+        lastLocation = new Point2D.Double(getHeadLocation().getX(), getHeadLocation().getY());
 
         switch (currentDirection) {
             case RIGHT:
